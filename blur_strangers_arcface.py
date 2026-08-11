@@ -83,7 +83,9 @@ def main():
     options = vision.FaceLandmarkerOptions(
         base_options=base_options,
         running_mode=vision.RunningMode.IMAGE,
-        num_faces=5
+        num_faces=5,
+        min_face_detection_confidence=0.3,
+        min_face_presence_confidence=0.3
     )
     landmarker = vision.FaceLandmarker.create_from_options(options)
     arc_session = ort.InferenceSession(ARCFACE_MODEL)
